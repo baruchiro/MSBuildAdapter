@@ -16,4 +16,8 @@
     <ProjectReference Include="..\MSBuildAdapter\MSBuildAdapter.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Content Update="TestData/**" />
+  </ItemGroup>
+
 </Project>
