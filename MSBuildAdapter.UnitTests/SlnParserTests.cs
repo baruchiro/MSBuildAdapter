@@ -14,7 +14,7 @@ namespace MSBuildAdapter.UnitTests
         [Fact]
         public void ParseSln_GetAllProjects()
         {
-            string[] expectedProjects = { "MSBuildAdapter.UnitTests.csproj", "MSBuildAdapter.csproj" };
+            string[] expectedProjects = { "Project1.csproj", "Project2.csproj" };
 
 
             var slnParser = new SlnParser();
