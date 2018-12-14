@@ -17,7 +17,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Content Update="TestData/**" />
+    <None Include="TestData/**/*.*">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>

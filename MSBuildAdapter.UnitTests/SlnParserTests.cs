@@ -9,19 +9,30 @@ namespace MSBuildAdapter.UnitTests
 {
     public class SlnParserTests
     {
-        private static readonly string TEST_SOURCES = "TestFiles";
+        private static readonly string TEST_SOURCES = "TestData";
 
         [Fact]
         public void ParseSln_GetAllProjects()
         {
-            string[] expectedProjects = { "Project1.csproj", "Project2.csproj" };
+            string[] expectedProjects = {
+                "ApplicationCore",
+                "Infrastructure",
+                "Web",
+                "WebRazorPages",
+                "FunctionalTests",
+                "IntegrationTests",
+                "UnitTests"
+                };
 
 
             var slnParser = new SlnParser();
-            var projects = slnParser.Parse(Path.Combine(TEST_SOURCES, "Sln.sln")).ToList();
+            var projects = slnParser.Parse(Path.Combine(TEST_SOURCES, "eShopOnWeb", "eShopOnWeb.sln")).ToList();
 
-            Assert.Equal(projects.Count(), expectedProjects.Length);
-            Assert.All(projects, p => expectedProjects.Any(e => e.EndsWith(p)));
+            Assert.Equal(expectedProjects.Length, projects.Count());
+            foreach (var expected in expectedProjects)
+            {
+                Assert.True(projects.Any(p => p.EndsWith(expected + ".csproj")), $"'{expected}' not exist in \n[{string.Join('\n', projects)}]");
+            }
         }
     }
 }
