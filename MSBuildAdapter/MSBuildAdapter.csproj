@@ -2,6 +2,10 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+
+    <PackageId>MSBuildAdapter</PackageId>
+    <Version>1.0.0</Version>
+    <Authors>Baruch Rothkoff</Authors>
   </PropertyGroup>
 
 </Project>
