@@ -12,7 +12,7 @@ namespace MSBuildAdapter.UnitTests
         [Fact]
         public void ProjectProps_GetFramework()
         {
-            throw new NotImplementedException();
+            var projects = TestUtils.projects.Select(p => new Project(Path.Combine(p.Value.Path) + Path.PathSeparator + p.Key + ".csproj"));
         }
     }
 }

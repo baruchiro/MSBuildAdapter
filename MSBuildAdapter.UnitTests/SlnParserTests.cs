@@ -14,22 +14,11 @@ namespace MSBuildAdapter.UnitTests
         [Fact]
         public void ParseSln_GetAllProjects()
         {
-            string[] expectedProjects = {
-                "ApplicationCore",
-                "Infrastructure",
-                "Web",
-                "WebRazorPages",
-                "FunctionalTests",
-                "IntegrationTests",
-                "UnitTests"
-                };
-
-
             var slnParser = new SlnParser();
             var projects = slnParser.Parse(Path.Combine(TEST_SOURCES, "eShopOnWeb", "eShopOnWeb.sln")).ToList();
 
-            Assert.Equal(expectedProjects.Length, projects.Count());
-            foreach (var expected in expectedProjects)
+            Assert.Equal(TestUtils.projects.Keys.Count, projects.Count());
+            foreach (var expected in TestUtils.projects.Keys)
             {
                 Assert.True(projects.Any(p => p.EndsWith(expected + ".csproj")), $"'{expected}' not exist in \n[{string.Join('\n', projects)}]");
             }
