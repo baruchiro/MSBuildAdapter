@@ -6,7 +6,7 @@ using System.Text.RegularExpressions;
 
 namespace MSBuildAdapter.Parsers
 {
-    public class SlnParser
+    class SlnParser
     {
         private static readonly string SLN_REGEX_PROJECT = ", \\\".*\\.[cv][bs]proj";
         public IEnumerable<string> Parse(string slnFilePath)

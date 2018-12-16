@@ -3,6 +3,8 @@ using System.Linq;
 using System.IO;
 using Xunit;
 
+using MSBuildAdapter.Adapters;
+
 namespace MSBuildAdapter.UnitTests
 {
     public class ProjectTests

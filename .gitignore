@@ -7,3 +7,4 @@ bin/
 
 # Visual Studio
 .vs/
+.vscode/
