@@ -11,13 +11,12 @@ namespace MSBuildAdapter.UnitTests
     public class SlnAdapterTests
     {
         public static readonly IEnumerable<object[]> projects = TestUtils.projects.Select(p => new[] { p.Key, p.Value });
-        private static readonly string TEST_SOURCES = "TestData";
         private static readonly string workDir = Directory.GetCurrentDirectory();
         private SlnAdapter slnAdapter;
 
         public SlnAdapterTests()
         {
-            var slnPath = Path.Combine(TEST_SOURCES, "eShopOnWeb", "eShopOnWeb.sln");
+            var slnPath = Path.Combine(TestUtils.TEST_SOURCES, "eShopOnWeb", "eShopOnWeb.sln");
             Assert.True(File.Exists(slnPath), $"The file {slnPath} not exist");
             slnAdapter = new SlnAdapter(slnPath);
         }
@@ -39,7 +38,7 @@ namespace MSBuildAdapter.UnitTests
         public void GetProjectDependencies_GetFirstLevel(string project, dynamic props)
         {
             //Given
-            var projectPath = Path.Combine(TEST_SOURCES, "eShopOnWeb", string.Join(Path.PathSeparator, props.Path), project + ".csproj");
+            var projectPath = Path.Combine(TestUtils.TEST_SOURCES, "eShopOnWeb", string.Join(Path.PathSeparator, props.Path), project + ".csproj");
             Assert.True(File.Exists(projectPath), $"The file {projectPath} not exist");
 
             var expectedDependenciesNames = props.Dependencies;
@@ -60,7 +59,7 @@ namespace MSBuildAdapter.UnitTests
         public void GetProjectDepends_GetFirstLevel(string project, dynamic props)
         {
             //Given
-            var projectPath = Path.Combine(TEST_SOURCES, "eShopOnWeb", props.Path, project + ".csproj");
+            var projectPath = Path.Combine(TestUtils.TEST_SOURCES, "eShopOnWeb", props.Path, project + ".csproj");
             Assert.True(File.Exists(projectPath));
 
             //When

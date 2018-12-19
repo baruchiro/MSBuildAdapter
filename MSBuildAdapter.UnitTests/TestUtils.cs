@@ -8,6 +8,8 @@ namespace MSBuildAdapter.UnitTests
 {
     class TestUtils
     {
+        public static readonly string TEST_SOURCES = "TestData";
+
         public static readonly Dictionary<string, dynamic> projects =
             new Dictionary<string, dynamic>()
             {

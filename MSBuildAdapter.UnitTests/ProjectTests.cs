@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.IO;
 using Xunit;
@@ -9,7 +10,8 @@ namespace MSBuildAdapter.UnitTests
 {
     public class ProjectTests
     {
-        private static readonly string TEST_SOURCES = "TestFiles";
+        public static readonly IEnumerable<object[]> projects = TestUtils.projects.Select(p => new[] { p.Key, p.Value });
+
 
         [Fact]
         public void ProjectProps_GetFramework()
